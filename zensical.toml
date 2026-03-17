@@ -8,9 +8,9 @@
 
 [project]
 site_name = "Continuous Intelligence"
-site_url = "https://denisecase.github.io/cintel-02-static-anomalies/"
-repo_url = "https://github.com/denisecase/cintel-02-static-anomalies"
-repo_name = "denisecase/cintel-02-static-anomalies"
+site_url = "https://github.com/BJean-0905"
+repo_url = "https://github.com/BJean-0905/cintel-02-static-anomalies/tree/main"
+repo_name = "BJean-0905/cintel-02-static-anomalies"
 site_description = "Continuous Intelligence project documentation"
 docs_dir = "docs" # source directory for documentation markdown files
 site_dir = "site" # output directory for generated site (ignored by Git; not in repo)

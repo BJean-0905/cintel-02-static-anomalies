@@ -37,7 +37,7 @@ It creates reasonable thresholds and outputs
 **anomalies** (data outside the expected threshold).
 
 You'll copy the Python file and make it your own (see docs/your-files.md),
-and perform a similar analysis on `data/clinic_data_yourname.csv`
+and perform a similar analysis on `data/clinic_data_BJean-0905`
 given **adult clinic** age and height data.
 
 ## Working Files
