@@ -111,7 +111,9 @@ def main() -> None:
     # An anomaly is any value greater than the threshold we set.
     # Domain rule for this example:
     # Anything above this value is suspicious.
-    LOG.info("Studying children's ages and heights to find anomalies...")
+    LOG.info(
+        "Studying children's ages and heights by clinical group to find anomalies..."
+    )
 
     # x is age in years, so 16 is the upper limit for kids
     MAX_REASONABLE_AGE: Final[float] = 16.0
