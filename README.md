@@ -32,7 +32,7 @@ the detection logic works.
 ## Data
 
 The example pipeline reads **pediatric clinic** age and height
-data from: `data/clinic_data_case.csv`.
+data from: `data/clinic_data_bjean.csv`.
 It creates reasonable thresholds and outputs
 **anomalies** (data outside the expected threshold).
 
