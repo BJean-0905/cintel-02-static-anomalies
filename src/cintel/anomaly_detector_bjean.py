@@ -115,14 +115,20 @@ def main() -> None:
         "Studying children's ages and heights by clinical group to find anomalies..."
     )
 
-    # x is age in years, so 16 is the upper limit for kids
-    MAX_REASONABLE_AGE: Final[float] = 16.0
+    # x is age in years, so 18 is the upper limit for kids
+    MAX_REASONABLE_AGE: Final[float] = 18.0
+    # x is age in years, behavioral health begins servies at age 3, so maybe 3 is a reasonable lower limit for kids.
+    MIN_REASONABLE_AGE: Final[float] = 3.0
 
     # y is height in inches, so maybe 6 feet (72 inches) is a reasonable upper limit
     MAX_REASONABLE_HEIGHT: Final[float] = 72.0
+    # y is height in inches, given age 3 minimum above, maybe 36 inches is a reasonable lower limit for kids.
+    MIN_REASONABLE_HEIGHT: Final[float] = 36.0
 
     LOG.info(f"MAX_REASONABLE_AGE: {MAX_REASONABLE_AGE} in years")
     LOG.info(f"MAX_REASONABLE_HEIGHT: {MAX_REASONABLE_HEIGHT} in inches")
+    LOG.info(f"MIN_REASONABLE_AGE: {MIN_REASONABLE_AGE} in years")
+    LOG.info(f"MIN_REASONABLE_HEIGHT: {MIN_REASONABLE_HEIGHT} in inches")
 
     # Create a new DataFrame named anomalies_df that contains
     # only the rows where EITHER
@@ -131,10 +137,15 @@ def main() -> None:
     # A single pipe (|) is the OR operator in polars.
     # We will use greater than or equal to (>=) to find values at or above the threshold.
     anomalies_df: pl.DataFrame = df.filter(
-        (pl.col("age_years") >= MAX_REASONABLE_AGE)
-        | (pl.col("height_inches") >= MAX_REASONABLE_HEIGHT)
+        (
+            (pl.col("age_years") >= MAX_REASONABLE_AGE)
+            | (pl.col("height_inches") >= MAX_REASONABLE_HEIGHT)
+        )
+        | (
+            (pl.col("age_years") <= MIN_REASONABLE_AGE)
+            | (pl.col("height_inches") <= MIN_REASONABLE_HEIGHT)
+        )
     )
-
     LOG.info(f"Count of anomalies found: {anomalies_df.height}")
 
     # ----------------------------------------------------
